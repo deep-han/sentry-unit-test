@@ -159,13 +159,6 @@ module.exports = {
     ),
     config: {
       release: process.env.SENTRY_RELEASE
-    },
-    clientIntegrations: {
-      Dedupe: {},
-      ExtraErrorData: {},
-      ReportingObserver: {},
-      RewriteFrames: {},
-      Vue: {attachProps: true}
     }
   }
 }

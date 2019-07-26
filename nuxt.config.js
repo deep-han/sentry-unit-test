@@ -153,7 +153,9 @@ module.exports = {
     dsn: process.env.SENTRY_DSN,
     publishRelease: true,
     // 生产环境并且有接入需求才初始化 sentry
-    disabled: !(IS_PROD && process.env.SENTRY_DSN),
+    disabled: !(
+      process.env.NODE_ENV !== 'development' && process.env.SENTRY_DSN
+    ),
     config: {
       release: process.env.SENTRY_RELEASE
     },

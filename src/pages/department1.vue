@@ -71,13 +71,9 @@ export default {
     },
     handleXHRError() {
       this.$axios
-        .$post(
-          'https://github.com/settings/connections/applications%7B/client_id%7D'
-        )
+        .$post('https://github.com/settings/connections/applications%7B/')
         .then(console.log)
-        .catch(error => {
-          // throw new Error(error)
-        })
+        .catch(error => {})
     }
   },
   filters: {

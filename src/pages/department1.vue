@@ -20,12 +20,15 @@
     </el-button-group>
 
     <section>
-      <p v-for="item in logs" :key="item.timestamp">{{ item.msg }}</p>
+      <p v-for="item in logs" :key="item.timestamp">
+        {{ item.timestamp | formatDate('') }}: {{ item.msg }}
+      </p>
     </section>
   </section>
 </template>
 
 <script>
+import {formatDate} from '@/const/filter.js'
 export default {
   data() {
     return {
@@ -56,13 +59,16 @@ export default {
   methods: {
     handleError(type, index) {
       const timestamp = +new Date()
+      const {fn, msg} = this[type][index]
       this.logs.unshift({
         timestamp,
         msg
       })
-      const {fn, msg} = this[type][index]
       fn()
     }
+  },
+  filters: {
+    formatDate: formatDate
   }
 }
 </script>

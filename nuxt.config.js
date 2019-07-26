@@ -161,10 +161,6 @@ module.exports = {
       release: process.env.SENTRY_RELEASE
     },
     clientIntegrations: {
-      GlobalHandlers: {
-        onerror: true,
-        onunhandledrejection: true
-      },
       Dedupe: {},
       ExtraErrorData: {},
       ReportingObserver: {},

@@ -75,7 +75,9 @@ export default {
           'https://github.com/settings/connections/applications%7B/client_id%7D'
         )
         .then(console.log)
-        .catch(error => this.$sentry && this.$sentry.captureException(error))
+        .catch(error => {
+          throw new Error(error)
+        })
     }
   },
   filters: {

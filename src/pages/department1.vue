@@ -18,6 +18,9 @@
         >范围错误{{ index }}</el-button
       >
     </el-button-group>
+    <el-button-group>
+      <el-button @click="handleXHRError">post 请求</el-button>
+    </el-button-group>
 
     <section>
       <p v-for="item in logs" :key="item.timestamp">
@@ -65,6 +68,14 @@ export default {
         msg
       })
       fn()
+    },
+    handleXHRError() {
+      this.$axios
+        .$post(
+          'https://github.com/settings/connections/applications%7B/client_id%7D'
+        )
+        .then(console.log)
+        .catch(console.error)
     }
   },
   filters: {

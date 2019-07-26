@@ -75,10 +75,6 @@ export default {
         .$post('https://github.com/settings/connections/applications%7B/')
         .then(console.log)
         .catch(error => {})
-
-      setTimeout(() => {
-        console.log(test)
-      }, 0)
     }
   },
   filters: {

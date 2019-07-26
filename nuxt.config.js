@@ -159,6 +159,12 @@ module.exports = {
     ),
     config: {
       release: process.env.SENTRY_RELEASE
+    },
+    integrations: {
+      GlobalHandlers: {
+        onerror: true,
+        onunhandledrejection: true
+      }
     }
   }
 }

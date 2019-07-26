@@ -76,7 +76,7 @@ export default {
         )
         .then(console.log)
         .catch(error => {
-          throw new Error(error)
+          // throw new Error(error)
         })
     }
   },

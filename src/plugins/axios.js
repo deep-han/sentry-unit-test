@@ -1,8 +1,8 @@
 /*
  * @Author: Han
  * @Date: 2019-05-08 15:13:59
- * @Last Modified by: Han
- * @Last Modified time: 2019-06-03 14:26:26
+ * @Last Modified by: mikey.zhaopeng
+ * @Last Modified time: 2019-07-26 16:11:52
  * @Description 请求拦截，适配 restEasy 后端API服务框架，若数据格式不符合下面的数据格式，则会按照 httpStatusCode 正常触发对应的事件。
  * @Example
  * 适配api返回格式：
@@ -18,7 +18,7 @@
 
 import Vue from 'vue'
 
-export default function({$axios, store, app, redirect}) {
+export default function({$axios, store, app, redirect, isDev, $sentry}) {
   $axios.onRequest(config => {
     let url = config.url
     // jwt 验证
@@ -52,6 +52,9 @@ export default function({$axios, store, app, redirect}) {
   })
 
   $axios.onError(error => {
+    if (!isDev && $sentry) {
+      $sentry.captureException(error)
+    }
     if (process.client) {
       // axios 数据结构
       let resp = error.response

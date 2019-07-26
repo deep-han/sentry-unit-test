@@ -3,6 +3,7 @@
  */
 import Vue from 'vue'
 import {
+  ButtonGroup,
   Button,
   Table,
   Pagination,
@@ -39,6 +40,7 @@ import ElDataTable from '@femessage/el-data-table'
 
 Vue.prototype.$ELEMENT = {size: 'medium'}
 
+Vue.use(ButtonGroup)
 Vue.use(Button)
 Vue.use(Select)
 Vue.use(Option)

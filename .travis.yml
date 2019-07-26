@@ -1,0 +1,21 @@
+branches:
+  only:
+    - master
+language: node_js
+node_js:
+  - lts/*
+git:
+  depth: 3
+env:
+  - API_SERVER=$API_SERVER PUBLIC_PATH=$PUBLIC_PATH SENTRY_DSN=$SENTRY_DSN SENTRY_URL=$SENTRY_URL SENTRY_ORG=$SENTRY_ORG SENTRY_PROJECT=$SENTRY_PROJECT SENTRY_AUTH_TOKEN=$SENTRY_AUTH_TOKEN
+install:
+  - yarn --frozen-lockfile
+  - yarn build
+  - find dist -name '*.js.map' -type f -print -exec rm -rf {} \;
+cache: yarn
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  local-dir: dist
+  github-token: $GITHUB_TOKEN

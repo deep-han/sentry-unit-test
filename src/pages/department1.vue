@@ -72,10 +72,13 @@ export default {
     },
     handleXHRError() {
       this.$axios
-        .$post(
+        .$get(
           'https://us-central1-iwanthttpcode.cloudfunctions.net/widgets/401'
         )
-        .then(console.log)
+        .then(resp => {
+          console.log(resp)
+          console.log(resp.data)
+        })
         .catch(error => {})
     }
   },

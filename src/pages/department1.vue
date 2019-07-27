@@ -72,7 +72,9 @@ export default {
     },
     handleXHRError() {
       this.$axios
-        .$post('https://github.com/settings/connections/applications%7B/')
+        .$post(
+          'https://us-central1-iwanthttpcode.cloudfunctions.net/widgets/401'
+        )
         .then(console.log)
         .catch(error => {})
     }

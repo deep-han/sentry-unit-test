@@ -77,9 +77,8 @@ export default {
         )
         .then(resp => {
           console.log(resp)
-          console.log(resp.data)
+          console.log(test)
         })
-        .catch(error => {})
     }
   },
   filters: {

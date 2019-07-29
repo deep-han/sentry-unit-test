@@ -163,7 +163,7 @@ module.exports = {
     integrations: {
       GlobalHandlers: {
         onerror: true,
-        onunhandledrejection: true
+        onunhandledrejection: false
       }
     }
   }
